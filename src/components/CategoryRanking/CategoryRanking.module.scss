@@ -1,0 +1,54 @@
+.container {
+  transition: opacity 0.5s ease-in-out;
+
+  &__fade-in {
+    opacity: 1;
+  }
+
+  &__fade-out {
+    opacity: 0.5;
+  }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  &__product {
+    width: 200px;
+    height: 300px;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--ranking {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    &--image {
+      margin: 10px 20px;
+      width: 160px;
+      height: 200px;
+    }
+
+    &--name {
+      width: 200px;
+      font-size: 11px;
+      /* 줄넘김 대신 '...'으로 */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &--price {
+      font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
