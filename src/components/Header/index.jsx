@@ -22,12 +22,14 @@ function Header() {
   return (
     <div className={styles.header}>
       <div className={styles['header__main-inner']}>
-        <h1 className={styles['header__main-innner--name']} onClick={goHome}>
-          GGak Store
-        </h1>
-        <div className={styles['header__main-inner--search']}>
-          <input placeholder="상품 입력" type="text" ref={inputRef} onKeyDown={(e) => activeEnter(e)} />
-          <SearchIcon />
+        <div className={styles['header__main-inner--left']}>
+          <h1 className={styles['header__main-inner--name']} onClick={goHome}>
+            GGak Store
+          </h1>
+          <div className={styles['header__main-inner--search']}>
+            <input placeholder="상품 입력" type="text" ref={inputRef} onKeyDown={(e) => activeEnter(e)} />
+            <SearchIcon />
+          </div>
         </div>
         <div
           className={styles.bucket}
