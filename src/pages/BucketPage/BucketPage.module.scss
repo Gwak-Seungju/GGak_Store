@@ -101,28 +101,6 @@
   cursor: pointer;
 }
 
-#paymentBoxContainer {
-  display: flex;
-  flex-direction: column;
-  row-gap: 5px;
-  width: 90%;
-}
-#paymentBoxContainer {
-  width: 100%;
-}
-
-#paymentBoxPay {
-  width: 25vw;
-  height: 50px;
-  background-color: blueviolet;
-  border: solid 1px lightgray;
-  color: white;
-  border-radius: 5px;
-  margin: 20px 0;
-  align-self: center;
-  font-size: 18px;
-}
-
 @media only screen and (max-width: 1000px) {
   #bucketBoxContainer,
   #paymentBoxContainer {
@@ -137,11 +115,8 @@
 }
 
 #bucketBoxsubHeader {
-  display: flex;
-  justify-content: space-between;
 }
 #bucketBoxTotalProductNumber {
-  font-weight: bold;
 }
 
 #clearBucket,
