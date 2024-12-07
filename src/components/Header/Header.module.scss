@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    cursor: pointer;
 
     &--left {
       display: flex;
@@ -42,6 +43,7 @@
   padding: 6px;
   top: 0;
   right: 5px;
+  cursor: pointer;
 
   &__count {
     position: absolute;

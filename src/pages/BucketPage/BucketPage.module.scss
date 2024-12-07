@@ -1,0 +1,152 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1024px;
+  min-height: 700px;
+  margin-top: 120px;
+  row-gap: 5px;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+
+    &--clear {
+      background-color: white;
+      border: 1px solid gray;
+      padding: 3px 6px;
+      cursor: pointer;
+    }
+  }
+}
+
+.bucket-container {
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
+  border: solid 1px blueviolet;
+  border-radius: 5px;
+  padding: 5px;
+  column-gap: 5px;
+  align-items: center;
+
+  &--image {
+    width: 200px;
+    height: 200px;
+  }
+
+  &--name {
+    font-size: 18px;
+    font-weight: bold;
+    align-self: center;
+  }
+
+  &__count {
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+
+    &--decrease,
+    &--increase {
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      border-color: lightgray;
+      border-radius: 20px;
+      background-color: white;
+      color: lightgray;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    &--number {
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+
+  &__price {
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__delete {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-color: lightgray;
+    border-radius: 20px;
+    background-color: white;
+    color: lightgray;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+
+.totalPrice {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.order {
+  width: 25vw;
+  height: 50px;
+  background-color: blueviolet;
+  border: solid 1px white;
+  color: white;
+  border-radius: 5px;
+  margin: 20px 0;
+  align-self: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#paymentBoxContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  width: 90%;
+}
+#paymentBoxContainer {
+  width: 100%;
+}
+
+#paymentBoxPay {
+  width: 25vw;
+  height: 50px;
+  background-color: blueviolet;
+  border: solid 1px lightgray;
+  color: white;
+  border-radius: 5px;
+  margin: 20px 0;
+  align-self: center;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 1000px) {
+  #bucketBoxContainer,
+  #paymentBoxContainer {
+    width: 1000px;
+  }
+  #bucketBoxPay {
+    width: 250px;
+  }
+  #paymentBoxPay {
+    width: 250px;
+  }
+}
+
+#bucketBoxsubHeader {
+  display: flex;
+  justify-content: space-between;
+}
+#bucketBoxTotalProductNumber {
+  font-weight: bold;
+}
+
+#clearBucket,
+#selectCoupon {
+  background-color: white;
+  border: 1px solid gray;
+  padding: 3px 6px;
+}

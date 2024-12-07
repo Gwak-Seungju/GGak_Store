@@ -27,7 +27,7 @@ export default function CategoryRanking({ product, version }) {
             alt={item.mallName}
             onClick={() => {
               addVisitedProduct(item);
-              navigate(`/ProductPage/${item.productId}/${index + 1}`, { state: item });
+              navigate(`/ProductPage/${item.productId}`, { state: item });
             }}
           />
           <div className={styles['container__product--name']}>
