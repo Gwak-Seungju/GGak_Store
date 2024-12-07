@@ -10,9 +10,17 @@ function Header() {
   const inputRef = useRef();
   const navigate = useNavigate();
 
+  const handleSearch = () => {
+    if (inputRef.current.value === '') {
+      alert('검색어를 입력하세요.');
+    } else {
+      navigate(`/SearchPage/${inputRef.current.value}`);
+    }
+  };
+
   const activeEnter = (e) => {
     if (e.key === 'Enter') {
-      navigate(`/SearchPage/${inputRef.current.value}`);
+      handleSearch();
     }
   };
   const goHome = () => {
@@ -27,8 +35,14 @@ function Header() {
             GGak Store
           </h1>
           <div className={styles['header__main-inner--search']}>
-            <input placeholder="상품 입력" type="text" ref={inputRef} onKeyDown={(e) => activeEnter(e)} />
-            <SearchIcon />
+            <input
+              className={styles['header__main-inner--input']}
+              placeholder="상품 입력"
+              type="text"
+              ref={inputRef}
+              onKeyDown={(e) => activeEnter(e)}
+            />
+            <SearchIcon onClick={handleSearch} className={styles['header__main-inner--icon']} />
           </div>
         </div>
         <div

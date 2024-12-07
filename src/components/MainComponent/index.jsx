@@ -1,16 +1,14 @@
-import { useEffect, useState, useTransition } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import CategoryRanking from '../CategoryRanking';
-import useSearchItem from '/src/api/ShoppingSearch/useSeacrhItem';
+import SkeletonRanking from '../CategoryRanking/SkeletonRanking';
 import { cn } from '@bcsdlab/utils';
 import styles from './MainComponent.module.scss';
 
+const productList = ['상의', '아우터', '바지', '스커트', '가방', '신발', '시계', '모자', '스포츠', '안경'];
+
 export default function MainComponent() {
-  const productList = ['상의', '아우터', '바지', '스커트', '가방', '신발', '시계', '모자', '스포츠', '안경'];
   const [currentCategory, setCurrentCategory] = useState(0);
-  const [product, setProduct] = useState([productList[0]]);
-  const { data } = useSearchItem(product);
-  const [isPending, startTransition] = useTransition();
-  const [visibleData, setVisibleData] = useState([]);
+  const [product, setProduct] = useState(productList[0]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -24,18 +22,10 @@ export default function MainComponent() {
     setProduct(newProduct);
   }, [currentCategory]);
 
-  useEffect(() => {
-    if (data) {
-      startTransition(() => {
-        setVisibleData(data);
-      });
-    }
-  }, [data]);
-
   return (
     <div className={styles.container}>
       <div className={styles.container__category}>
-        <div>상품</div>
+        <div className={styles['container__category--title']}>상품</div>
         {productList.map((item, index) => (
           <button
             key={index}
@@ -51,7 +41,9 @@ export default function MainComponent() {
           </button>
         ))}
       </div>
-      <CategoryRanking products={visibleData} isPending={isPending} />
+      <Suspense fallback={<SkeletonRanking version="mainPage" />}>
+        <CategoryRanking product={product} version="mainPage" />
+      </Suspense>
     </div>
   );
 }

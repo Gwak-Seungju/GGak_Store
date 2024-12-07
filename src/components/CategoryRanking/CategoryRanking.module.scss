@@ -1,20 +1,20 @@
+@use '/src/utils/scss/media' as media;
+
 .container {
-  transition: opacity 0.5s ease-in-out;
-
-  &__fade-in {
-    opacity: 1;
-  }
-
-  &__fade-out {
-    opacity: 0.5;
-  }
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 900px;
+  column-gap: 5px;
+
+  &__search {
+    grid-template-columns: repeat(5, 1fr);
+  }
 
   &__product {
     width: 200px;
     height: 300px;
     transition: transform 0.5s ease-in-out;
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.05);
@@ -46,9 +46,10 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@include media.media-breakpoint(mobile) {
   .container {
+    width: 576px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }

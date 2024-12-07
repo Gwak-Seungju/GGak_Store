@@ -8,7 +8,7 @@ export const getShoppingData = async (product) => {
   const response = await axios.get(URL, {
     params: {
       query: product,
-      display: 10,
+      display: 100,
     },
     headers: {
       'X-Naver-Client-Id': ClientID,

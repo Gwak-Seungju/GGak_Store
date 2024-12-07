@@ -1,32 +1,35 @@
-import { Link } from 'react-router-dom';
+// import { useState, useEffect, useTransition } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useStore from '/src/utils/store/store';
 import { cn } from '@bcsdlab/utils';
+import useSearchItem from '/src/api/ShoppingSearch/useSeacrhItem';
 import styles from './CategoryRanking.module.scss';
 
-export default function CategoryRanking({ products, isPending }) {
+export default function CategoryRanking({ product, version }) {
   const { addVisitedProduct } = useStore((state) => state);
+  const navigate = useNavigate();
+  const { data } = useSearchItem(product);
+  const filteredData = version === 'mainPage' ? (data ?? []).slice(0, 12) : data;
 
   return (
     <div
       className={cn({
         [styles.container]: true,
-        [styles['container__fade-out']]: isPending,
-        [styles['container__fade-in']]: !isPending,
+        [styles.container__search]: version === 'search',
       })}
     >
-      {(products ?? []).map((item, index) => (
+      {filteredData.map((item, index) => (
         <div className={styles.container__product} key={index}>
           <div className={styles['container__product--ranking']}>{index + 1}위</div>
-          <Link to={`/ProductPage/${item.productId}/${index + 1}`}>
-            <img
-              className={styles['container__product--image']}
-              src={item.image}
-              alt={item.mallName}
-              onClick={() => {
-                addVisitedProduct(item);
-              }}
-            />
-          </Link>
+          <img
+            className={styles['container__product--image']}
+            src={item.image}
+            alt={item.mallName}
+            onClick={() => {
+              addVisitedProduct(item);
+              navigate(`/ProductPage/${item.productId}/${index + 1}`, { state: item });
+            }}
+          />
           <div className={styles['container__product--name']}>
             {item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}
           </div>

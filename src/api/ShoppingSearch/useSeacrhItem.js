@@ -1,8 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { getShoppingData } from './ApiDetail';
 
 const useSearchItem = (product) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ['shoppingData', product],
     queryFn: () => getShoppingData(product),
   });
