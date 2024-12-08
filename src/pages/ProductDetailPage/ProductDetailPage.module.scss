@@ -1,4 +1,12 @@
+@use '/src/utils/scss/media' as media;
+
 .container {
   width: 1024px;
   min-height: 700px;
+  margin: 0 auto;
+
+  @include media.media-breakpoint(mobile) {
+    width: 100%;
+    padding: 0 16px;
+  }
 }

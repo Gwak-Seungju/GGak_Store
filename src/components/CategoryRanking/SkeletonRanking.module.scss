@@ -1,11 +1,23 @@
+@use '/src/utils/scss/media' as media;
+
 .skeleton {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   min-height: 900px;
   column-gap: 5px;
 
+  @include media.media-breakpoint(mobile) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   &__search {
     grid-template-columns: repeat(5, 1fr);
+
+    @include media.media-breakpoint(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__item {

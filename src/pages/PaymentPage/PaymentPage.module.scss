@@ -1,4 +1,16 @@
+@use '/src/utils/scss/media' as media;
+
 .container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
   width: 1024px;
   min-height: 700px;
+  margin: 0 auto;
+
+  @include media.media-breakpoint(mobile) {
+    width: 100%;
+    padding: 10px;
+    row-gap: 15px;
+  }
 }

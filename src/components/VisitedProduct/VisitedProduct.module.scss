@@ -17,12 +17,12 @@
 
   &.expanded {
     height: auto;
-    width: auto; /* 펼쳤을 때의 고정 너비 */
+    width: auto;
   }
 
   &:not(.expanded) {
-    width: auto; /* 접혔을 때의 고정 너비 */
-    height: 40px; /* 접혔을 때의 고정 높이 */
+    width: auto;
+    height: 40px;
     overflow: hidden;
   }
 
