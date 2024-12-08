@@ -1,13 +1,19 @@
+@use '/src/utils/scss/media' as media;
+
 .header {
   position: sticky;
   top: 0;
   min-width: 1024px;
   width: 100vw;
-  padding: 12px 0;
+  padding: 32px 0;
   background-color: #fff;
   display: flex;
   justify-content: center;
   z-index: 5;
+
+  @include media.media-breakpoint(mobile) {
+    padding: 12px 4px;
+  }
 }
 
 .main-inner {
@@ -16,9 +22,27 @@
   justify-content: space-between;
   align-items: center;
 
+  @include media.media-breakpoint(mobile) {
+    width: 360px;
+  }
+
+  &--name {
+    cursor: pointer;
+    margin: 0;
+
+    @include media.media-breakpoint(mobile) {
+      font-size: 14px;
+    }
+  }
+
   &--left {
     display: flex;
     gap: 12px;
+
+    @include media.media-breakpoint(mobile) {
+      flex-direction: column;
+      gap: 6px;
+    }
   }
 
   &--search {
@@ -29,12 +53,22 @@
 
   &--input {
     padding: 8px 3px;
+    width: 100%;
     border: 1px solid black;
     border-radius: 5px;
+
+    @include media.media-breakpoint(mobile) {
+      padding: 0;
+    }
   }
 
   &--icon {
     cursor: pointer;
+
+    @include media.media-breakpoint(mobile) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &__bucket {
@@ -45,17 +79,32 @@
     z-index: 5;
     cursor: pointer;
 
+    @include media.media-breakpoint(mobile) {
+      align-self: start;
+      border: none;
+      padding: 0;
+    }
+
     &--count {
       position: absolute;
       top: 1px;
       left: 4px;
       color: blue;
       font-weight: bold;
+
+      @include media.media-breakpoint(mobile) {
+        display: none;
+      }
     }
 
     &--icon {
       width: 32px;
       height: 32px;
+
+      @include media.media-breakpoint(mobile) {
+        width: 18px;
+        height: 18px;
+      }
     }
   }
 }
