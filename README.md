@@ -1,8 +1,76 @@
-# React + Vite
+# 모바일 프로그래밍 Term-Project: 쇼핑 사이트 구현
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 웹 사이트의 주요 기능
 
-Currently, two official plugins are available:
+- 메인 페이지에서는 10개의 상품 카테고리가 6초마다 바뀌며 1~12위까지의 상품을 볼 수 있음
+- 상품 입력란에 상품 입력 시 관련 상품 순위를 볼 수 있음
+- 원하는 상품 이미지 클릭 시 상품 정보를 볼 수 있는 상품 상세 페이지로 이동할 수 있음
+- 이전에 봤던 상품을 5개까지 볼 수 있음
+- 상품 개수를 정해서 장바구니에 담을 수도 있고, 바로 상품을 구매할 수도 있음
+- 장바구니 페이지에서는 고른 상품의 개수를 조정할 수 있으며 최종 주문을 할 수 있음
+- 결제 페이지에서는 결제 수단, 필수 동의 체크 등을 하여 결제 버튼을 클릭할 수 있음. 실제로 결제되지는 않음
+- `naver openapi`를 사용하는데 api를 불러오는 동안의 `skeleton` 구조를 보여줌
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 페이지별 기능
+
+- 웹과 모바일웹의 기능 차이는 없습니다. 화면 구조만 바뀝니다.
+
+### 1. 메인 페이지
+
+![image](https://github.com/user-attachments/assets/aad5e539-c168-4642-a476-444dcc5b26b5)
+![image](https://github.com/user-attachments/assets/4b5a3d5f-6078-4f40-85fe-fe676cde9628)
+
+- 각 페이지별 **고정**적으로 있는 것이 있다. **헤더**, **푸터**, **장바구니**, **방문했던 상품 목록바**.
+- 헤더의 GGak Store를 클릭하면 메인 페이지로 이동한다.
+- 상품 입력란에 상품을 입력하면 관련 상품 순위가 나열되며 상품 검색 페이지로 이동한다.
+- 장바구니 아이콘을 클릭하면 장바구니 페이지로 이동한다.
+- 방문했던 상품 목록바의 상품 이미지를 클릭하면 상품 상세 페이지로 이동하고, 비우기를 하면 방문했던 상품 목록이 사라진다. 그리고 접고 펼칠 수 있다.
+- 메인 페이지의 왼쪽 부분에 상품 카테고리가 있고, 각 카테고리를 클릭하면 그 카테고리의 상품 순위 1위부터 12위까지 나열된다. 매6초마다 카테고리가 순서대로 바뀐다.
+
+### 2. 검색 페이지
+
+![image](https://github.com/user-attachments/assets/38c398c9-5b65-455d-889e-53089e33216b)
+
+![image](https://github.com/user-attachments/assets/3117199d-e574-4108-9aea-94b9ebc0e210)
+
+- 상품을 검색할 시 검색 페이지로 넘어간다. 상품 관련 순위가 1~100위까지 상품 이미지, 상품명, 가격과 함께 나열된다.
+- 상품 이미지를 클릭 시 그 상품 상세 페이지로 이동하며 방문했던 상품 목록에 그 상품을 추가한다.
+
+### 3. 상품 페이지
+
+![image](https://github.com/user-attachments/assets/884aaa40-e75d-46e9-ac53-b76eced5c1ac)
+
+![image](https://github.com/user-attachments/assets/22435d1c-0238-4f81-bac8-c8a1ad09f80a)
+
+- 상품 상세 페이지에도 상품 이미지, 상품명, 가격 정보가 제공되어 있고, 원하는 구매 수량을 `–`버튼과 `+`버튼으로 조정할 수 있다. 구매 수량에 따라 총 상품 금액이 바뀐다.
+- 장바구니 버튼을 클릭하면 정한 구매 수량과 함께 장바구니에 담기고 장바구니에 담겼다는 `alert창`이 뜬다.
+- 이미 장바구니에 있는 상품을 다시 장바구니에 담을 수 없다.
+- 구매하기 버튼을 클릭하면 정한 구매 수량과 함께 결제 페이지로 바로 이동한다.
+
+### 4. 장바구니 페이지
+
+![image](https://github.com/user-attachments/assets/0949c468-14d7-477c-8df4-189750b3aec0)
+
+![image](https://github.com/user-attachments/assets/63028708-44e7-48fb-bc15-b1e895bc1dc0)
+
+- 장바구니에 담긴 총 상품 개수를 보여준다.
+- 장바구니에 담았던 상품들이 나열된다.
+- 장바구니 비우기 버튼을 클릭하면 장바구니에 담겼던 상품들이 모두 없어진다.
+- 장바구니 페이지에서는 구매 수량을 다시 조정할 수 있고, 장바구니에서 없애고 싶은 상품을` x버튼`을 이용해 삭제할 수 있다.
+- 총 결제 금액이 나오고, 주문하기 버튼을 클릭 시 결제 페이지로 이동한다.
+- 총 결제 금액이 0원일 시 결제 페이지로 이동할 수 없다.
+
+### 5. 결제 페이지
+
+![image](https://github.com/user-attachments/assets/6ca9de9f-17a4-4b99-90c6-9bbc9dcf9c7f)
+
+![image](https://github.com/user-attachments/assets/ccf768fd-748c-4e05-a750-481ebdc280b1)
+
+![image](https://github.com/user-attachments/assets/37f96814-4487-47fd-a69c-0e55fc71be1a)
+
+- 결제할 상품을 보여주고, 총 상품 금액을 보여준다.
+- 쿠폰을 선택해 할인을 받을 수 있다.
+- 3개의 결제 수단 중 하나를 정할 수 있다. 결제 수단을 클릭하면 각 결제 수단에 맞는 결제 안내 정보가 나온다.
+- 결제 수단을 고르지 않을 시 결제 완료를 할 수 없다.
+- 주문자 동의 중 `[필수]` `checkbox`를 모두 클릭해야 결제를 완료할 수 있다.
+- 결제 버튼을 클릭하면 결제 완료 `alert창`이 뜨고, 메인 페이지로 이동한다.
