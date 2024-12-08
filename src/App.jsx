@@ -5,7 +5,6 @@ import SearchPage from './pages/SearchPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import BucketPage from './pages/BucketPage';
 import PaymentPage from './pages/PaymentPage';
-import VisitedProduct from './components/VisitedProduct';
 import styles from './App.module.scss';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
           <Route path="/ProductPage/:productId" element={<ProductDetailPage />} />
           <Route path="/BucketPage" element={<BucketPage />} />
           <Route path="/PaymentPage" element={<PaymentPage />} />
-          <Route path="/visitedPage" element={<VisitedProduct />} />
         </Route>
       </Routes>
     </div>

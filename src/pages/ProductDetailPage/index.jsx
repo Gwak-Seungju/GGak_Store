@@ -4,7 +4,6 @@ import styles from './ProductDetailPage.module.scss';
 
 export default function ProductDetailPage() {
   const location = useLocation();
-  console.log(location.state);
 
   return (
     <div className={styles.container}>

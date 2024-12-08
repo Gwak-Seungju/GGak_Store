@@ -1,8 +1,8 @@
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import CategoryRanking from '/src/components/CategoryRanking';
+import SkeletonRanking from '/src/components/CategoryRanking/SkeletonRanking';
 import styles from './SearchPage.module.scss';
-import { Suspense } from 'react';
-import SkeletonRanking from '../../components/CategoryRanking/SkeletonRanking';
 
 export default function SearchPage() {
   const { product } = useParams();

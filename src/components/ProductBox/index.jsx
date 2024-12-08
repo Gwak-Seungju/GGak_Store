@@ -22,9 +22,7 @@ export default function ProductBox({ product }) {
 
   const handlePurchaseClick = () => {
     product.productNumber = productNumber;
-    navigate('/PaymentPage', {
-      state: { product },
-    });
+    navigate('/PaymentPage', { state: product });
   };
 
   return (

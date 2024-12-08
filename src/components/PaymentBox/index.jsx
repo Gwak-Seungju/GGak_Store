@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { cn } from '@bcsdlab/utils';
-import CouponModal from '../CouponModal';
 import { useNavigate } from 'react-router-dom';
+import { cn } from '@bcsdlab/utils';
+import CouponModal from '/src/components/CouponModal';
+import useStore from '/src/utils/store/store';
 import styles from './PaymentBox.module.scss';
 
 const generalPayment = ['카드', '가상계좌', 'Apple Pay', '휴대폰', '카카오페이', '삼성페이', '네이버페이', '페이코'];
 
-export default function PaymentBox({ purchaseItems }) {
+export default function PaymentBox({ purchaseItems, isFromBucket }) {
+  const { clearBucket } = useStore((state) => state);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -28,6 +30,7 @@ export default function PaymentBox({ purchaseItems }) {
     const allChecked = checkboxes.every((checkbox) => checkbox.checked);
     if (allChecked && isRadioChecked !== null) {
       alert('결제가 완료되었습니다. 감사합니다.');
+      if (isFromBucket) clearBucket();
       navigate('/');
     } else {
       alert('필수 동의 사항을 모두 체크해주십시오.');

@@ -3,7 +3,6 @@
   flex-direction: column;
   width: 1024px;
   min-height: 700px;
-  margin-top: 120px;
   row-gap: 5px;
 
   &__head {
@@ -112,16 +111,4 @@
   #paymentBoxPay {
     width: 250px;
   }
-}
-
-#bucketBoxsubHeader {
-}
-#bucketBoxTotalProductNumber {
-}
-
-#clearBucket,
-#selectCoupon {
-  background-color: white;
-  border: 1px solid gray;
-  padding: 3px 6px;
 }

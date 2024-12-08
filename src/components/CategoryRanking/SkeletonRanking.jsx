@@ -1,4 +1,3 @@
-// import { useState, useEffect, useTransition } from 'react';
 import { cn } from '@bcsdlab/utils';
 import styles from './SkeletonRanking.module.scss';
 

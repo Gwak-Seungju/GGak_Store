@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState } from 'react';
-import CategoryRanking from '../CategoryRanking';
-import SkeletonRanking from '../CategoryRanking/SkeletonRanking';
 import { cn } from '@bcsdlab/utils';
+import CategoryRanking from '/src/components/CategoryRanking';
+import SkeletonRanking from '/src/components/CategoryRanking/SkeletonRanking';
 import styles from './MainComponent.module.scss';
 
 const productList = ['상의', '아우터', '바지', '스커트', '가방', '신발', '시계', '모자', '스포츠', '안경'];

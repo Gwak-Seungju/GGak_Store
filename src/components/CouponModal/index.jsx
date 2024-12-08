@@ -17,7 +17,6 @@ export default function CouponModal({ closeModal, amount, setDiscountAmount }) {
     ...item,
     할인금액: Math.round(item.할인금액 + (amount * item.할인율) / 100),
   }));
-  console.log(calculatedCouponList);
 
   return (
     <div className={styles.background}>

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import useStore from '../../utils/store/store';
+import useStore from '/src/utils/store/store';
 import styles from './VisitedProduct.module.scss';
 
 export default function VisitedProduct() {

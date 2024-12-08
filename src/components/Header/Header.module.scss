@@ -1,60 +1,61 @@
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   min-width: 1024px;
+  width: 100vw;
   padding: 12px 0;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
   z-index: 5;
+}
 
-  &__main-inner {
+.main-inner {
+  display: flex;
+  width: 1024px;
+  justify-content: space-between;
+  align-items: center;
+
+  &--left {
     display: flex;
-    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &--search {
+    display: flex;
     align-items: center;
+    gap: 5px;
+  }
+
+  &--input {
+    padding: 8px 3px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  &--icon {
+    cursor: pointer;
+  }
+
+  &__bucket {
     position: relative;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 6px;
+    z-index: 5;
     cursor: pointer;
 
-    &--left {
-      display: flex;
-      gap: 12px;
-    }
-
-    &--search {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    &--input {
-      padding: 8px 3px;
-      border: 1px solid black;
-      border-radius: 5px;
+    &--count {
+      position: absolute;
+      top: 1px;
+      left: 4px;
+      color: blue;
+      font-weight: bold;
     }
 
     &--icon {
-      cursor: pointer;
+      width: 32px;
+      height: 32px;
     }
-  }
-}
-
-.bucket {
-  position: relative;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 6px;
-  top: 0;
-  right: 5px;
-  cursor: pointer;
-
-  &__count {
-    position: absolute;
-    top: 1px;
-    left: 4px;
-    color: blue;
-    font-weight: bold;
-  }
-
-  &__icon {
-    width: 32px;
-    height: 32px;
   }
 }

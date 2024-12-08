@@ -2,7 +2,7 @@
 
 .container {
   display: flex;
-  column-gap: 125px;
+  justify-content: space-between;
 
   &__image {
     width: 350px;

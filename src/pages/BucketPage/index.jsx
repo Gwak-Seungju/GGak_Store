@@ -1,5 +1,5 @@
-import useStore from '/src/utils/store/store';
 import { useNavigate } from 'react-router-dom';
+import useStore from '/src/utils/store/store';
 import styles from './BucketPage.module.scss';
 
 export default function BucketPage() {
