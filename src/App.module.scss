@@ -7,6 +7,10 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
+
+  @include media.media-breakpoint(mobile) {
+    gap: 8px;
+  }
 }
 
 body {

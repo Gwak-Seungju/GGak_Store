@@ -3,8 +3,8 @@
 .header {
   position: sticky;
   top: 0;
-  min-width: 1024px;
   width: 100vw;
+  min-width: 1024px;
   padding: 32px 0;
   background-color: #fff;
   display: flex;
@@ -12,7 +12,9 @@
   z-index: 5;
 
   @include media.media-breakpoint(mobile) {
-    padding: 12px 4px;
+    width: 100%;
+    min-width: 360px;
+    padding: 16px 0;
   }
 }
 
@@ -23,7 +25,8 @@
   align-items: center;
 
   @include media.media-breakpoint(mobile) {
-    width: 360px;
+    width: auto;
+    min-width: 360px;
   }
 
   &--name {
@@ -31,7 +34,7 @@
     margin: 0;
 
     @include media.media-breakpoint(mobile) {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 
@@ -102,8 +105,8 @@
       height: 32px;
 
       @include media.media-breakpoint(mobile) {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
       }
     }
   }

@@ -14,8 +14,18 @@
   min-height: 700px;
   column-gap: 5px;
 
+  @include media.media-breakpoint(mobile) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   &__search {
     grid-template-columns: repeat(5, 1fr);
+
+    @include media.media-breakpoint(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__product {
@@ -51,13 +61,5 @@
     &--price {
       font-weight: bold;
     }
-  }
-}
-
-@include media.media-breakpoint(mobile) {
-  .container {
-    width: 576px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
   }
 }
