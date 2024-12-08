@@ -1,9 +1,17 @@
 @use '/src/utils/scss/media' as media;
 
+.no-data {
+  width: 100%;
+  min-height: 700px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  min-height: 900px;
+  min-height: 700px;
   column-gap: 5px;
 
   &__search {
