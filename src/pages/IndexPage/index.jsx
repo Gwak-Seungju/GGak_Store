@@ -1,7 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Header from '/src/components/Header';
 import Footer from '/src/components/Footer';
+import VisitedProduct from '/src/components/VisitedProduct';
 
 function IndexPage() {
   return (
@@ -13,8 +14,9 @@ function IndexPage() {
         <Outlet />
       </Suspense>
       <Footer />
+      <VisitedProduct />
     </>
-  )
+  );
 }
 
 export default IndexPage;
