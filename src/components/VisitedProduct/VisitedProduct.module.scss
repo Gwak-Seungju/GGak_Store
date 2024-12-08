@@ -1,3 +1,5 @@
+@use '/src/utils/scss/media' as media;
+
 .container {
   position: fixed;
   bottom: 30px;
@@ -6,11 +8,37 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 0.1px;
-  padding: 2px;
+  gap: 5px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  transition: height 0.3s ease, width 0.3s ease;
+
+  &.expanded {
+    height: auto;
+    width: auto; /* 펼쳤을 때의 고정 너비 */
+  }
+
+  &:not(.expanded) {
+    width: auto; /* 접혔을 때의 고정 너비 */
+    height: 40px; /* 접혔을 때의 고정 높이 */
+    overflow: hidden;
+  }
+
+  @include media.media-breakpoint(mobile) {
+    bottom: 10px;
+    right: 10px;
+  }
 
   &__head {
     font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+
+    @include media.media-breakpoint(mobile) {
+      font-size: 12px;
+    }
   }
 
   &__image {
@@ -18,13 +46,39 @@
     height: 50px;
     border: 0.5px solid lightgray;
     cursor: pointer;
+
+    @include media.media-breakpoint(mobile) {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__clear {
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: gray;
     color: white;
+    padding: 5px 10px;
+    font-size: 12px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darkgray;
+    }
+
+    @include media.media-breakpoint(mobile) {
+      padding: 4px 8px;
+      font-size: 10px;
+    }
+  }
+
+  &__empty {
+    font-size: 12px;
+    color: gray;
+
+    @include media.media-breakpoint(mobile) {
+      font-size: 10px;
+    }
   }
 }
