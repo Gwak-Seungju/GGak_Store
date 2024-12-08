@@ -72,12 +72,9 @@ export default function PaymentBox({ purchaseItems }) {
             <button className={styles.coupon__select} onClick={openModal}>
               쿠폰 선택
             </button>
-            <CouponModal
-              isOpen={isModalOpen}
-              closeModal={closeModal}
-              amount={result}
-              setDiscountAmount={setDiscountAmount}
-            />
+            {isModalOpen && (
+              <CouponModal closeModal={closeModal} amount={result} setDiscountAmount={setDiscountAmount} />
+            )}
             <div>- {(1 * discountAmount).toLocaleString('ko-KR')}원</div>
           </div>
           <div className={styles['payment__price--total']}>
